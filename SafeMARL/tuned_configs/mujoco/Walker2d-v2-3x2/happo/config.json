@@ -1,0 +1,68 @@
+{
+  "algo_args": {
+    "algo": {
+      "actor_num_mini_batch": 1,
+      "clip_param": 0.1,
+      "critic_epoch": 5,
+      "critic_num_mini_batch": 1,
+      "entropy_coef": 0,
+      "gae_lambda": 0.95,
+      "gamma": 0.99,
+      "huber_delta": 10.0,
+      "max_grad_norm": 10.0,
+      "ppo_epoch": 5,
+      "value_loss_coef": 1
+    },
+    "device": {
+      "cuda": true,
+      "cuda_deterministic": true,
+      "torch_threads": 4
+    },
+    "eval": {
+      "eval_episodes": 20,
+      "n_eval_rollout_threads": 10,
+      "use_eval": true
+    },
+    "logger": {
+      "log_dir": "./results"
+    },
+    "model": {
+      "activation_func": "relu",
+      "critic_lr": 0.0005,
+      "gain": 0.01,
+      "hidden_sizes": [
+        256,
+        256
+      ],
+      "initialization_method": "orthogonal_",
+      "lr": 0.0005,
+      "opti_eps": 1e-05,
+      "std_x_coef": 1,
+      "std_y_coef": 0.5,
+      "use_feature_normalization": true,
+      "weight_decay": 0
+    },
+    "seed": {
+      "seed": null
+    },
+    "train": {
+      "episode_length": 200,
+      "eval_interval": 30,
+      "keep_checkpoints": false,
+      "log_interval": 5,
+      "n_rollout_threads": 10,
+      "num_env_steps": 6000000
+    }
+  },
+  "env_args": {
+    "agent_conf": "3x2",
+    "done_config": "never",
+    "episode_limit": 1000,
+    "scenario": "Walker2d-v2"
+  },
+  "main_args": {
+    "algo": "happo",
+    "env": "mujoco",
+    "exp_name": "default"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "algo_args": {
+    "algo": {
+      "alpha": 0.2,
+      "batch_size": 1000,
+      "buffer_size": 1000000,
+      "gamma": 0.99,
+      "n_step": 5,
+      "polyak": 0.005
+    },
+    "device": {
+      "cuda": true,
+      "cuda_deterministic": true,
+      "torch_threads": 4
+    },
+    "eval": {
+      "eval_episodes": 20,
+      "n_eval_rollout_threads": 10,
+      "use_eval": true
+    },
+    "logger": {
+      "log_dir": "./results"
+    },
+    "model": {
+      "activation_func": "relu",
+      "critic_lr": 0.0003,
+      "final_activation_func": "tanh",
+      "hidden_sizes": [
+        256,
+        256
+      ],
+      "lr": 0.001
+    },
+    "seed": {
+      "seed": null
+    },
+    "train": {
+      "eval_interval": 4000,
+      "keep_checkpoints": false,
+      "log_interval": 1000,
+      "n_rollout_threads": 10,
+      "num_env_steps": 2000000,
+      "train_interval": 50,
+      "update_per_train": 1,
+      "warmup_steps": 10000
+    }
+  },
+  "env_args": {
+    "agent_conf": "2x3",
+    "done_config": "never",
+    "episode_limit": 1000,
+    "scenario": "HalfCheetah-v2"
+  },
+  "main_args": {
+    "algo": "hasac",
+    "env": "mujoco",
+    "exp_name": "default"
+  }
+}

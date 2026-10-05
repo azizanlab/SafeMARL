@@ -1,0 +1,47 @@
+seed:
+  seed: null
+device:
+  cuda: True
+  cuda_deterministic: True
+  torch_threads: 4
+train:
+  n_rollout_threads: 10
+  num_env_steps: 2000000
+  warmup_steps: 10000
+  train_interval: 10
+  update_per_train: 1
+  eval_interval: 4000
+  log_interval: 1000
+  keep_checkpoints: False
+eval:
+  use_eval: True
+  n_eval_rollout_threads: 10
+  eval_episodes: 20
+model:
+  hidden_sizes: [256, 256]
+  activation_func: relu
+  final_activation_func: tanh
+  lr: 0.0002
+  safety_lr: 0.0004
+  critic_lr: 0.0005
+  safety_critic_lr: 0.001
+algo:
+  gamma: 0.99
+  safety_gamma: 0.99
+  alpha: 0.2
+  actor_interval: 4
+  n_step: 5
+  safety_expectile: 0.5
+  safety_proximity: 1.0
+  region_margin: -0.5
+  constraint_tightening: 0.0
+  rho: 10.0
+  multiplier_lr: 0.2
+  multiplier_max: 1500.0
+  policy_average_fraction: 0.05
+  batch_size: 1000
+  buffer_size: 1000000
+  polyak: 0.005
+  max_grad_norm: 10.0
+logger:
+  log_dir: "./results"

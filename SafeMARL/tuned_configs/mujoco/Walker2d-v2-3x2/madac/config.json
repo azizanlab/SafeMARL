@@ -1,0 +1,72 @@
+{
+  "algo_args": {
+    "algo": {
+      "actor_interval": 4,
+      "alpha": 0.1,
+      "batch_size": 1000,
+      "buffer_size": 1000000,
+      "constraint_tightening": 0.02,
+      "gamma": 0.99,
+      "max_grad_norm": 10.0,
+      "multiplier_lr": 0.2,
+      "multiplier_max": 1500.0,
+      "n_step": 5,
+      "policy_average_fraction": 0.05,
+      "polyak": 0.005,
+      "region_margin": -0.5,
+      "rho": 10.0,
+      "safety_expectile": 0.5,
+      "safety_gamma": 0.99,
+      "safety_proximity": 1.0
+    },
+    "device": {
+      "cuda": true,
+      "cuda_deterministic": true,
+      "torch_threads": 4
+    },
+    "eval": {
+      "eval_episodes": 20,
+      "n_eval_rollout_threads": 10,
+      "use_eval": true
+    },
+    "logger": {
+      "log_dir": "./results"
+    },
+    "model": {
+      "activation_func": "relu",
+      "critic_lr": 0.0005,
+      "final_activation_func": "tanh",
+      "hidden_sizes": [
+        256,
+        256
+      ],
+      "lr": 0.0002,
+      "safety_critic_lr": 0.001,
+      "safety_lr": 0.0004
+    },
+    "seed": {
+      "seed": null
+    },
+    "train": {
+      "eval_interval": 12000,
+      "keep_checkpoints": false,
+      "log_interval": 3000,
+      "n_rollout_threads": 10,
+      "num_env_steps": 6000000,
+      "train_interval": 10,
+      "update_per_train": 1,
+      "warmup_steps": 10000
+    }
+  },
+  "env_args": {
+    "agent_conf": "3x2",
+    "done_config": "never",
+    "episode_limit": 1000,
+    "scenario": "Walker2d-v2"
+  },
+  "main_args": {
+    "algo": "madac",
+    "env": "mujoco",
+    "exp_name": "default"
+  }
+}
